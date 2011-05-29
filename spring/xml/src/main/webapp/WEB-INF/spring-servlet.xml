@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+  <dwr:configuration />
+  <dwr:controller id="dwrController" debug="true" />
+  <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property value="true" name="alwaysUseFullPath" />
+    <property name="mappings">
+      <props>
+        <prop key="/dwr/**/*">dwrController</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="greeter" class="de.mvitz.examples.dwr.spring.xml.Greeter">
+    <dwr:remote javascript="Greeter">
+      <dwr:include method="greet" />
+    </dwr:remote>
+  </bean>
+
+</beans>
