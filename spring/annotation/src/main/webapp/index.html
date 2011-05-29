@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>DWR Spring annotation example</title>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script type="text/javascript" src="dwr/interface/Greeter.js"></script>
+    <script type="text/javascript">
+      function greet() {
+        var name = dwr.util.getValue('name');
+        Greeter.greet(name, function(greeting) {
+          dwr.util.setValue('greeting', greeting);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>DWR Spring annotation example</h1>
+    <form action="#">
+      <p>
+        <label for="name">Name to greet:</label> <input type="text" id="name" /><br />
+        <input type="button" value="Greet!" onclick="greet()" />
+      </p>
+    </form>
+    <p id="greeting"></p>
+  </body>
+</html>
