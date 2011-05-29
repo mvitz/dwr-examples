@@ -10,6 +10,7 @@
 
   <modules>
     <module>plain</module>
+    <module>spring</module>
   </modules>
 
   <properties>
